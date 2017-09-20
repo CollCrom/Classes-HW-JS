@@ -79,6 +79,52 @@ class Person {
 		this.backAccount+=10;
 	}
 	buyPet(pet){
-		this.p
+		this.pets.push(pet);
+		this.backAccount -= pet.getPrice();
 	}
 }
+
+const jill = new Person('jill');
+
+class Shoes {
+	constructor(serial){
+		this.serialNumber = serial;
+	}
+}
+
+const factory = {
+	shoes: [],
+	generateShoes(){
+		const newShoe = new Shoe(this.shoes.length)
+		this.shoes.push(newShoe);
+	},
+}
+
+class Store {
+	constructor(mallName, serialNumber){
+		this.mallName = mallName;
+		this.serialNumber = serialNumber;
+	}
+}
+
+class Mall {
+	constructor(mallName){
+		this.mallName = mallName;
+		this.stores = [];
+	}
+	generateStore(){
+		const newStore = new Store(this.mallName, this.stores.length);
+		this.stores.push(newStore);
+	}
+}
+
+const mallOfAmerica = new Mall('Mall of America');
+mallOfAmerica.generateStore();
+mallOfAmerica.generateStore();
+
+console.log(mallOfAmerica);
+
+
+
+
+
